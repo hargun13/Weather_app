@@ -1,28 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-import { forecastApi } from './services/forecast_service';
+import React, { useContext , createContext } from "react";
+import LeftComp from "./components/LeftComponent/LeftComp";
+import RightComp from "./components/RightComponent/RightComp";
+
 
 function App() {
 
-  let latitude = 23.0;
-  let longitude = 95.0;
-
-
 
   return (
-    <div>
-    <h1>This is a Weather Application</h1>
-    <h6>The Latitude is: {latitude} and the Longitude is: {longitude} </h6>
-    <button onClick = {(e) => {
-      forecastApi(latitude,longitude).then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      }) ;
-    }}>Show Forecast</button>
-    </div>
+
+
+      <div className="md:flex h-screen w-screen">
+
+          <div className="md:w-[65%] h-full">
+              <LeftComp />
+          </div>
+
+          <div className="md:w-[35%] h-full">
+              <RightComp />
+          </div>
+        
+      </div>
+
   );
 }
 
 export default App;
+
